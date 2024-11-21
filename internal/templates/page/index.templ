@@ -1,0 +1,19 @@
+package templates
+
+import components "munich-gophers-intro-to-templ/internal/templates/components"
+
+templ Index() {
+	@components.Layout() {
+		<h1>Intro to TEMPL</h1>
+		<p>this is a index page</p>
+		<form class="my-6">
+			@components.Input("name", false)
+			@components.Input("email", true)
+			<button type="submit" class="bg-blue-500 text-white p-2 rounded">Submit</button>
+		</form>
+		@components.Block(templ.Attributes{
+			"test-dataid": "test-123",
+			"class":       "bg-red-500 rounded p-4 m-4",
+		})
+	}
+}

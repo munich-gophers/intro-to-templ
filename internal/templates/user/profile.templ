@@ -1,0 +1,36 @@
+package templates
+
+import "context"
+
+func GetUser(ctx context.Context) string {
+	if user, ok := ctx.Value("user").(string); ok {
+		return user
+	}
+	return ""
+}
+
+templ Profile() {
+	<p>
+		You are logged in as:
+		<span>
+			switch GetUser(ctx) {
+				case "test":
+					<span style="color: red">{ "Test user" }</span>
+				case "admin":
+					<span style="color: rebeccapurple">{ "Admin user" }</span>
+				default:
+					<span>{ "Unknown user" }</span>
+			}
+		</span>
+	</p>
+	<div>
+		<p>
+			Hello,
+			if GetUser(ctx) != "" {
+				{ GetUser(ctx) }
+			} else {
+				John Doe
+			}
+		</p>
+	</div>
+}

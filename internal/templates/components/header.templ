@@ -1,0 +1,17 @@
+package templates
+
+import "os"
+
+templ Header(title string, htmx bool) {
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>{ title }</title>
+	if os.Getenv("env") == "production" {
+		<link rel="stylesheet" href="static/css/style.min.css"/>
+	} else {
+		<link rel="stylesheet" href="static/css/style.css"/>
+	}
+	if htmx {
+		<script src="static/script/htmx.min.js" defer></script>
+	}
+}

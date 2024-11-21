@@ -1,0 +1,9 @@
+package templates
+
+templ Input(name string, required bool) {
+	<div class="block my-2">
+		<label for={ name }>{ name }</label>
+		<br/>
+		<input type="text" name={ name } id={ name } required?={ required }/>
+	</div>
+}

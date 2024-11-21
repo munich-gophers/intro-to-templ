@@ -1,0 +1,14 @@
+package templates
+
+import (
+	components "munich-gophers-intro-to-templ/internal/templates/components"
+	user "munich-gophers-intro-to-templ/internal/templates/user"
+)
+
+templ About() {
+	@components.Layout() {
+		<h1>About</h1>
+		<p>This is a simple example of a Go templating engine.</p>
+		@user.Profile()
+	}
+}

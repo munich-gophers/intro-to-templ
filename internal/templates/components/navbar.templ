@@ -1,0 +1,14 @@
+package templates
+
+type Item struct {
+	Name string
+	Path string
+}
+
+templ Navbar(items []Item) {
+	<ul>
+		for _, item := range items {
+			<li><a href={ templ.URL(item.Path) }>{ item.Name }</a></li>
+		}
+	</ul>
+}
